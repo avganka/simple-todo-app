@@ -20,7 +20,7 @@ function App() {
   });
 
   const addTodo = (text: string) => {
-    setTodos([...todos, {id: uuidv4(), text, isCompleted: false}]);
+    setTodos([{id: uuidv4(), text, isCompleted: false}, ...todos]);
   };
 
   const removeTodo = (id: string) => {
