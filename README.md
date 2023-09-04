@@ -42,7 +42,7 @@ npm install
 4. Запустите проект в режиме разработки:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 5. Для сборки проекта:
