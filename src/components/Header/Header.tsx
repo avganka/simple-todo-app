@@ -5,9 +5,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <h1>Todos</h1>
-      <p className={styles.date}>
-        {format(new Date(), 'dd MMMM yyyy')}
-      </p>
+      <p className={styles.date}>{format(new Date(), 'dd MMMM yyyy')}</p>
     </header>
   );
 }
