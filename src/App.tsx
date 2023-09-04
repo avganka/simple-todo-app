@@ -32,10 +32,15 @@ function App() {
   };
 
   const toggleTodoStatus = (id: string) => {
-    const newTodos = todos.map((todo) =>
-      todo.id === id ? {...todo, isCompleted: !todo.isCompleted} : todo
-    );
-    setTodos(newTodos);
+    const currentIndex = todos.findIndex((todo) => todo.id === id);
+
+    if (currentIndex !== -1) {
+      setTodos([
+        ...todos.slice(0, currentIndex),
+        ...todos.slice(currentIndex + 1),
+        {...todos[currentIndex], isCompleted: !todos[currentIndex].isCompleted},
+      ]);
+    }
   };
 
   const changeFilter = (filter: IFilter) => {
