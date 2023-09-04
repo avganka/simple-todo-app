@@ -1,0 +1,41 @@
+.button {
+	cursor: pointer;
+	color: var(--color-gray-500);
+	background-color: transparent;
+	border: none;
+	transition: all 0.2s ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+	color: var(--color-black);
+}
+
+.solid {
+	width: 25px;
+	height: 25px;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: var(--color-gray-300);
+
+}
+
+.solid:hover,
+.solid:focus {
+	background-color: var(--color-gray-500);
+}
+
+.success {
+	width: 25px;
+	height: 25px;
+	padding: 5px;
+	border-radius: 5px;
+	color: var(--color-white);
+	background-color: var(--color-success);
+}
+
+.success:hover,
+.success:focus {
+	color: var(--color-white);
+	background-color: var(--color-success-hover);
+}

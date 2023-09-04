@@ -1,3 +1,21 @@
 .todo {
-	
+	display: flex;
+	align-items: center;
+	padding: 0.5em 1em;
+	background-color: var(--color-gray-100);
+	border-radius: 10px;
+	gap: 20px;
+}
+
+.todo.checked {
+	background-color: var(--color-success-light);
+	text-decoration: line-through;
+}
+
+.todo:hover .removeButton {
+	color: var(--color-black);
+}
+
+.removeButton {
+	margin-left: auto;
 }

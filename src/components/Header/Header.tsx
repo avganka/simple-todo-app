@@ -1,14 +1,12 @@
 import {format} from 'date-fns';
-import ru from 'date-fns/locale/ru';
 import styles from './Header.module.css';
 
 function Header() {
   return (
     <header className={styles.header}>
+      <h1>Todos</h1>
       <p className={styles.date}>
-        {format(new Date(), 'dd MMMM yyyy', {
-          locale: ru,
-        })}
+        {format(new Date(), 'dd MMMM yyyy')}
       </p>
     </header>
   );

@@ -15,6 +15,8 @@
   --color-gray-200: #E1E2E2;
   --color-gray-100: #F5F5F5;
   --color-success: #00CD2D;
+  --color-success-light: #E5FAEA;
+  --color-success-hover: #009921;
   --color-important: #FF0000;
 
   --font-family: 'Raleway', sans-serif;
@@ -35,6 +37,4 @@ body {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  border-radius: 20px;
-
 }

@@ -1,3 +1,33 @@
-.addTodo {
-	
+.form {
+	position: relative;
+}
+
+.input {
+	padding: 10px 35px 10px 15px;
+	width: 100%;
+	font-size: 20px;
+	border: none;
+	border-bottom: 2px solid var(--color-gray-100);
+	font-weight: 700;
+	outline: none;
+	transition: border 0.2s ease-in-out;
+}
+
+.input:focus {
+	border-bottom: 2px solid var(--color-gray-500);
+}
+
+.input::placeholder {
+	color: var(--color-gray-500);
+}
+
+.button {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+}
+
+.buttonIcon {
+	transform: rotate(45deg);
 }

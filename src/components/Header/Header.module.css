@@ -2,11 +2,16 @@
 	background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
 	padding: 2em;
 	text-align: right;
-	border-radius: 20px 20px 0 0 ;
+	border-radius: 20px 20px 0 0;
+	color: var(--color-white);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 10px;
 }
 
 .date {
-	color: var(--color-white);
 	font-weight: 700;
 	font-size: 24px;
 }

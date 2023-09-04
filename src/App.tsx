@@ -1,11 +1,13 @@
 import {IFilter, ITodo} from './types';
 import {useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
+import styles from './App.module.css';
 import useLocalStorage from './hooks/useLocalStorage';
 import Header from './components/Header/Header';
 import AddTodo from './components/AddTodo/AddTodo';
 import Filter from './components/Filter/Filter';
-import Todo from './components/Todo/Todo';
+import TodoList from './components/TodoList/TodoList';
+import Button from './components/Button/Button';
 
 function App() {
   const [todos, setTodos] = useLocalStorage<ITodo[]>('todos', []);
@@ -25,6 +27,10 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const removeCompletedTodos = () => {
+    setTodos(todos.filter((todo) => todo.isCompleted !== true));
+  };
+
   const toggleTodoStatus = (id: string) => {
     const newTodos = todos.map((todo) =>
       todo.id === id ? {...todo, isCompleted: !todo.isCompleted} : todo
@@ -39,19 +45,17 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      <main>
+      <main className={styles.main}>
         <AddTodo onTodoAdd={addTodo} />
-        <Filter onFilterChange={changeFilter} />
-        <ul>
-          {filteredTodos.map((todo) => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              onTodoRemove={removeTodo}
-              onTodoStatusChange={toggleTodoStatus}
-            />
-          ))}
-        </ul>
+        <div className={styles.controls}>
+          <Filter filter={filter} onFilterChange={changeFilter} />
+          <Button onClick={removeCompletedTodos}>Clear completed</Button>
+        </div>
+        <TodoList
+          todos={filteredTodos}
+          onTodoRemove={removeTodo}
+          onTodoStatusChange={toggleTodoStatus}
+        />
       </main>
     </div>
   );
