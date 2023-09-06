@@ -3,6 +3,7 @@ import styles from './Todo.module.css';
 import spriteUrl from '../../assets/svg-sprite.svg?url';
 import cn from 'classnames';
 import Button from '../Button/Button';
+import {motion} from 'framer-motion';
 interface TodoProps {
   todo: ITodo;
   onTodoRemove: (id: string) => void;
@@ -11,7 +12,10 @@ interface TodoProps {
 
 function Todo({todo, onTodoRemove, onTodoStatusChange}: TodoProps) {
   return (
-    <li
+    <motion.li
+      initial={{scale: 0.5, opacity: 0}}
+      animate={{scale: 1, opacity: 1}}
+      exit={{scale: 0.5, opacity: 0}}
       className={cn(styles.todo, {
         [styles.checked]: todo.isCompleted,
       })}
@@ -38,7 +42,7 @@ function Todo({todo, onTodoRemove, onTodoStatusChange}: TodoProps) {
           <use xlinkHref={`${spriteUrl}#cross`}></use>
         </svg>
       </Button>
-    </li>
+    </motion.li>
   );
 }
 
