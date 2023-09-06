@@ -37,8 +37,8 @@ function App() {
     if (currentIndex !== -1) {
       setTodos([
         ...todos.slice(0, currentIndex),
-        ...todos.slice(currentIndex + 1),
         {...todos[currentIndex], isCompleted: !todos[currentIndex].isCompleted},
+        ...todos.slice(currentIndex + 1),
       ]);
     }
   };
