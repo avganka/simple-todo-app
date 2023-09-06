@@ -1,6 +1,5 @@
 import {IFilter, ITodo} from './types';
 import {useState} from 'react';
-import {v4 as uuidv4} from 'uuid';
 import styles from './App.module.css';
 import useLocalStorage from './hooks/useLocalStorage';
 import Header from './components/Header/Header';
@@ -8,6 +7,7 @@ import AddTodo from './components/AddTodo/AddTodo';
 import Filter from './components/Filter/Filter';
 import TodoList from './components/TodoList/TodoList';
 import Button from './components/Button/Button';
+import { generateId } from './helpers/generateId';
 
 function App() {
   const [todos, setTodos] = useLocalStorage<ITodo[]>('todos', []);
@@ -20,7 +20,7 @@ function App() {
   });
 
   const addTodo = (text: string) => {
-    setTodos([{id: uuidv4(), text, isCompleted: false}, ...todos]);
+    setTodos([{id: generateId(), text, isCompleted: false}, ...todos]);
   };
 
   const removeTodo = (id: string) => {
